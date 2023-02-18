@@ -10,13 +10,16 @@ const schema = [
     {columnName: "Temperatures", fieldName: 'Temperatures'},
     
 ]
-
+const dataForm = new DataForm("form-section", weatherConfig.maxDays);
 const dataProcessor = new DataProcessor(weatherConfig.url, weatherConfig.cities);
-const dataTabke = new TableForm("form-table", "Temperatures", schema);
-async function displayTemperatures() {
-    const data = await dataProcessor.getTemperatureData("Eilat",
-     "2023-02-19", "2023-02-20", 14, 16);
+const dataTable = new TableForm("form-table", "Temperatures", schema);
+// async function displayTemperatures() {
+//     const data = await dataProcessor.getTemperatureData("Eilat",
+//      "2023-02-19", "2023-02-20", 14, 16);
+    
+// }
+function creatDataWeather(){
     
 }
-displayTemperatures();
-const dataForm = new DataForm("form-section", weatherConfig.maxDays);
+
+dataProcessor.addFormHandler(getTemperatureData);

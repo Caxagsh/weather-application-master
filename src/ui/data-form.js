@@ -81,14 +81,11 @@ export class DataForm {
     addFormHandler(handlerFun) {
         this.#formElement.addEventListener('submit', (event) => {
     event.preventDefault(); //canceling default handler of "submit"
-    const weatherData = handlerFun();
-   const message = handlerFun(employeeData);
-   if (message) {
-    alert(message);
-   } else {
-    this.#formElement.reset();
-    this.setCities();
-   }
+const inputDate = document.getElementById("date-from-id")
+const inputdateValue = inputDate.value;
+    const weatherData = handlerFun("Eilat","2023-02-19", "2023-02-20", 14, 16);// передать хендлер функцию и получить нужные для нее аргументы с формы (вначале переменными потом возможно массивом)
+   
+   
 })
     }
 
